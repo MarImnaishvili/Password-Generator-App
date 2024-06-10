@@ -80,6 +80,7 @@ const PasswordContainer = styled.div`
   overflow: hidden;
 
   & > input {
+    width: 80%;
     color: #e6e5ea;
     font-size: 2.4rem;
     font-weight: 700;
