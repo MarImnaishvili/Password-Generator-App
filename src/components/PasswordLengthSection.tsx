@@ -12,7 +12,7 @@ export default function PasswordLengthSection({
   return (
     <div>
       <MainSection>
-        <div className="dovForSpan">
+        <div className="divForSpan">
           <span className="Characterlength">Character Length</span>
           <span className="CharacterNumber">{passwordLength}</span>
         </div>
@@ -42,12 +42,13 @@ const MainSection = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  .dovForSpan {
+  .divForSpan {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    overflow: hidden;
   }
   .Characterlength {
     font-size: 1.6rem;
