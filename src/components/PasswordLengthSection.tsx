@@ -48,7 +48,6 @@ const MainSection = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    overflow: hidden;
   }
   .Characterlength {
     font-size: 1.6rem;
