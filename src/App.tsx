@@ -69,6 +69,7 @@ const HeaderContainer = styled.div`
 
 const PasswordContainer = styled.div`
   width: 100%;
+  max-width: 100%;
   height: 6.4rem;
   padding: 1.5rem;
   display: flex;
@@ -76,6 +77,7 @@ const PasswordContainer = styled.div`
   align-items: center;
   background-color: #24232c;
   margin-bottom: 2rem;
+  overflow: hidden;
 
   & > input {
     color: #e6e5ea;
