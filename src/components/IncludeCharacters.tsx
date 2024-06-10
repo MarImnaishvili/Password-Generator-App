@@ -175,9 +175,6 @@ export default function IncludeCharacters({
       </Button>
     </IncludeCharacterSection>
   );
-  {
-    console.log(useUpperCase);
-  }
 }
 
 const IncludeCharacterSection = styled.div`
