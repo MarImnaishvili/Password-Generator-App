@@ -49,9 +49,12 @@ function App() {
 }
 
 const MainContainer = styled.div`
-  width: 100%;
-  max-width: 34.3rem;
+  width: 34.3rem;
+  max-width: 100%;
   margin: 0 auto;
+  @media (min-width: 540px) {
+    width: 54rem;
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -77,7 +80,6 @@ const PasswordContainer = styled.div`
   align-items: center;
   background-color: #24232c;
   margin-bottom: 2rem;
-  overflow: hidden;
 
   & > input {
     width: 80%;

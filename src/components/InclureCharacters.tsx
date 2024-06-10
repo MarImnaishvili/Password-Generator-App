@@ -53,11 +53,11 @@ export default function IncludeCharacters({
             id="Uppercase"
             name="Uppercase"
             value="Uppercase"
-            onChange={() => setUseUpperCase(true)}
+            onChange={() => setUseUpperCase((prevState) => !prevState)}
           />
           <label htmlFor="Uppercase"></label>
         </div>
-        <img src={check} alt="check"></img>
+        {useUpperCase ? <img src={check} alt="check"></img> : null}
         <span>Include Uppercase Letters</span>
       </CharactersDiv>
       <CharactersDiv>
@@ -67,11 +67,11 @@ export default function IncludeCharacters({
             id="Lowercase"
             name="Lowercase"
             value="Lowercase"
-            onChange={() => setUseLowerCase(true)}
+            onChange={() => setUseLowerCase((prevState) => !prevState)}
           />
           <label htmlFor="Lowercase"></label>
         </div>
-        <img src={check} alt="check"></img>
+        {useLowerCase ? <img src={check} alt="check"></img> : null}
         <span>Include Lowercase Letters</span>
       </CharactersDiv>
       <CharactersDiv>
@@ -81,11 +81,11 @@ export default function IncludeCharacters({
             id="Numbers"
             name="Numbers"
             value="Numbers"
-            onChange={() => setUseNumbers(true)}
+            onChange={() => setUseNumbers((prevState) => !prevState)}
           />
           <label htmlFor="Numbers"></label>
         </div>
-        <img src={check} alt="check"></img>
+        {useNumbers ? <img src={check} alt="check"></img> : null}
         <span>Include Numbers</span>
       </CharactersDiv>
       <CharactersDiv>
@@ -95,11 +95,11 @@ export default function IncludeCharacters({
             id="Symbols"
             name="Symbols"
             value="Symbols"
-            onChange={() => setUseSymbols(true)}
+            onChange={() => setUseSymbols((prevState) => !prevState)}
           />
           <label htmlFor="Symbols"></label>
         </div>
-        <img src={check} alt="check"></img>
+        {useSymbols ? <img src={check} alt="check"></img> : null}
         <span>Include Symbols</span>
       </CharactersDiv>
       <Strength>
@@ -148,10 +148,13 @@ export default function IncludeCharacters({
       </Strength>
       <Button onClick={generatePassword}>
         <span>GENERATE</span>
-        <img src={errow} alt="errow"></img>
+        <img className="errow" src={errow} alt="errow"></img>
       </Button>
     </IncludeCharacterSection>
   );
+  {
+    console.log(useUpperCase);
+  }
 }
 
 const IncludeCharacterSection = styled.div`
@@ -170,7 +173,7 @@ const CharactersDiv = styled.div`
   position: relative;
   margin-bottom: 2rem;
 
-  img {
+  & > img {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
@@ -185,6 +188,9 @@ const CharactersDiv = styled.div`
   }
 
   input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    z-index: 2;
   }
 
   label {
@@ -270,6 +276,14 @@ const Button = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+  &:hover {
+    background-color: #24232c;
+    border: #a4ffaf solid 0.2rem;
+    color: #a4ffaf;
+    svg path {
+      fill: #a4ffaf;
+    }
+  }
 
   & > span {
     margin-right: 2rem;

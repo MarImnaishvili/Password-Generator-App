@@ -89,6 +89,10 @@ const ProgressContainer = styled.div<ProgressContainerProps>`
     border-radius: 50%;
     background: #e6e5ea;
     transform: translate(50%, -35%);
+    &:hover {
+      background: #18171f;
+      border: #a4ffaf solid 0.2rem;
+    }
   }
 
   & > #vol::-webkit-slider-runnable-track {
@@ -102,7 +106,7 @@ const ProgressContainer = styled.div<ProgressContainerProps>`
     position: absolute;
     top: 0.5rem;
     left: 0;
-    width: ${(props) => props.passwordlength * 1.4 + 1}rem;
+    width: ${(props) => props.passwordlength * 1.4 + 1.5}rem;
     height: 100%;
     background: #a4ffaf;
   }
