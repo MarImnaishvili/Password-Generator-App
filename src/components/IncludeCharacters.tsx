@@ -10,21 +10,21 @@ export default function IncludeCharacters({
   passwordLength,
   setPassword,
 }: IncludeCharactersProps) {
-  const [useUpperCase, setUseUpperCase] = useState(false);
-  const [useLowerCase, setUseLowerCase] = useState(false);
-  const [useNumbers, setUseNumbers] = useState(false);
-  const [useSymbols, setUseSymbols] = useState(false);
+  const [useUpperCase, setUseUpperCase] = useState<boolean>(false);
+  const [useLowerCase, setUseLowerCase] = useState<boolean>(false);
+  const [useNumbers, setUseNumbers] = useState<boolean>(false);
+  const [useSymbols, setUseSymbols] = useState<boolean>(false);
   const [countTrueCharacters, setCountTrueCharacters] = useState<number>(0);
 
   useEffect(() => {
-    const countCharactersColor: boolean[] = [
+    const countCharacters: boolean[] = [
       useUpperCase,
       useLowerCase,
       useNumbers,
       useSymbols,
     ];
 
-    setCountTrueCharacters(countCharactersColor.filter((el) => el).length);
+    setCountTrueCharacters(countCharacters.filter((el) => el).length);
   }, [useUpperCase, useLowerCase, useNumbers, useSymbols]);
 
   function generatePassword() {
@@ -38,7 +38,6 @@ export default function IncludeCharacters({
     for (let index = 0; index < passwordLength; index++) {
       newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
     }
-
     setPassword(newPassword);
   }
 
@@ -201,10 +200,6 @@ const CharactersDiv = styled.div`
     width: 1.2rem;
     height: 1rem;
     color: #24232c;
-  }
-
-  .inputLabel {
-    /* position: relative; */
   }
 
   input[type="checkbox"] {
