@@ -276,6 +276,7 @@ const Button = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+
   &:hover {
     background-color: #24232c;
     border: #a4ffaf solid 0.2rem;
