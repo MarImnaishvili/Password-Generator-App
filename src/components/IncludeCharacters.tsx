@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import check from "/images/icon-check.svg";
-import errow from "/images/icon-arrow-right.svg";
 import { useState, useEffect } from "react";
 
 interface IncludeCharactersProps {
@@ -44,6 +42,24 @@ export default function IncludeCharacters({
     setPassword(newPassword);
   }
 
+  interface CheckBoxStyles {
+    backgroundColor?: string;
+    backgroundImage?: string;
+    backgroundRepeat?: string;
+    backgroundPosition?: string;
+  }
+
+  function styleForCheckBox(characters: boolean): CheckBoxStyles {
+    return characters
+      ? {
+          backgroundColor: "#a4ffaf",
+          backgroundImage: "url(/images/icon-check.svg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }
+      : {};
+  }
+
   return (
     <IncludeCharacterSection>
       <CharactersDiv>
@@ -55,9 +71,11 @@ export default function IncludeCharacters({
             value="Uppercase"
             onChange={() => setUseUpperCase((prevState) => !prevState)}
           />
-          <label htmlFor="Uppercase"></label>
+          <label
+            htmlFor="Uppercase"
+            style={styleForCheckBox(useUpperCase)}
+          ></label>
         </div>
-        {useUpperCase ? <img src={check} alt="check"></img> : null}
         <span>Include Uppercase Letters</span>
       </CharactersDiv>
       <CharactersDiv>
@@ -69,9 +87,11 @@ export default function IncludeCharacters({
             value="Lowercase"
             onChange={() => setUseLowerCase((prevState) => !prevState)}
           />
-          <label htmlFor="Lowercase"></label>
+          <label
+            htmlFor="Lowercase"
+            style={styleForCheckBox(useLowerCase)}
+          ></label>
         </div>
-        {useLowerCase ? <img src={check} alt="check"></img> : null}
         <span>Include Lowercase Letters</span>
       </CharactersDiv>
       <CharactersDiv>
@@ -83,9 +103,8 @@ export default function IncludeCharacters({
             value="Numbers"
             onChange={() => setUseNumbers((prevState) => !prevState)}
           />
-          <label htmlFor="Numbers"></label>
+          <label htmlFor="Numbers" style={styleForCheckBox(useNumbers)}></label>
         </div>
-        {useNumbers ? <img src={check} alt="check"></img> : null}
         <span>Include Numbers</span>
       </CharactersDiv>
       <CharactersDiv>
@@ -97,9 +116,8 @@ export default function IncludeCharacters({
             value="Symbols"
             onChange={() => setUseSymbols((prevState) => !prevState)}
           />
-          <label htmlFor="Symbols"></label>
+          <label htmlFor="Symbols" style={styleForCheckBox(useSymbols)}></label>
         </div>
-        {useSymbols ? <img src={check} alt="check"></img> : null}
         <span>Include Symbols</span>
       </CharactersDiv>
       <Strength>
@@ -148,7 +166,13 @@ export default function IncludeCharacters({
       </Strength>
       <Button onClick={generatePassword}>
         <span>GENERATE</span>
-        <img className="errow" src={errow} alt="errow"></img>
+        <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#24232C"
+            d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+          />
+        </svg>
+        {/* <img className="errow" src={errow} alt="errow"></img> */}
       </Button>
     </IncludeCharacterSection>
   );
@@ -197,7 +221,7 @@ const CharactersDiv = styled.div`
     display: block;
     width: 2rem;
     height: 2rem;
-    transition: all 0.5s ease;
+    transition: all 0.1s ease;
     cursor: pointer;
     position: absolute;
     top: 0px;

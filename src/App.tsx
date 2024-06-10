@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PasswordLengthSection from "./components/PasswordLengthSection";
-import InclureCharacters from "./components/InclureCharacters";
+import IncludeCharacters from "./components/IncludeCharacters";
 import { useState } from "react";
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
           passwordLength={passwordLength}
           setPasswordLength={setPasswordLength}
         />
-        <InclureCharacters
+        <IncludeCharacters
           passwordLength={passwordLength}
           setPassword={setPassword}
         />
