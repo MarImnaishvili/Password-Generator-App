@@ -77,8 +77,13 @@ const ProgressContainer = styled.div<ProgressContainerProps>`
     width: 100%;
     height: 100%;
     border-radius: none;
-    background: #18171f;
-    outline: none;
+    background: linear-gradient(
+      to right,
+      rgba(164, 255, 175) 0%,
+      rgba(164, 255, 175) ${(props) => (props.passwordlength / 20) * 100}%,
+      rgba(24, 23, 31, 1) ${(props) => (props.passwordlength / 20) * 100}%,
+      rgba(24, 23, 31, 1) 100%
+    );
   }
 
   & > #vol::-webkit-slider-thumb {
@@ -99,15 +104,5 @@ const ProgressContainer = styled.div<ProgressContainerProps>`
     border-radius: none;
     height: 0.8rem;
     background: transparent;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0.5rem;
-    left: 0;
-    width: ${(props) => props.passwordlength * 1.4 + 1.5}rem;
-    height: 100%;
-    background: #a4ffaf;
   }
 `;
