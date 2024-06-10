@@ -82,7 +82,7 @@ const PasswordContainer = styled.div`
   margin-bottom: 2rem;
 
   & > input {
-    width: 80%;
+    width: 90%;
     color: #e6e5ea;
     font-size: 2.4rem;
     font-weight: 700;
