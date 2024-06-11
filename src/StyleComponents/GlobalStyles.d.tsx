@@ -21,4 +21,7 @@ body{
 html{
     font-size:62.5%
 }
+button{
+    font-family:"JetBrains Mono", monospace;
+}
 `;
